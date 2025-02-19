@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+header{
+    background-color: aquamarine;
+}
+header nav {
+    text-align: center;
+}
+header  nav ul{
+    list-style-type: none;
+}
+header nav ul li a {
+    text-decoration: none;
+    color:rgb(29, 27, 27)
+}
+
+main {
+    text-align: center;
+    }
+main .image-container img{
+      width: 250px;
+      height: 250px;  
+    }
+main .description p {
+        width: 500px;
+    }
+footer {
+    text-align: center;
+    background-color: aquamarine;
+}
