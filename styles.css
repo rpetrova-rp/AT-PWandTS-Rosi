@@ -25,6 +25,13 @@ main .image-container img{
     }
 main .description p {
         width: 500px;
+        margin: 50px;
+    }
+main .search-bar {
+        padding: 10px;
+    }
+    main .main-text-contant{
+        margin: 50px;
     }
 footer {
     text-align: center;
