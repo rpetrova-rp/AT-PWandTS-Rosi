@@ -30,6 +30,9 @@ main .description p {
 main .search-bar {
         padding: 10px;
     }
+    main .main-text-contant{
+        margin: 50px;
+    }
 footer {
     text-align: center;
     background-color: aquamarine;
