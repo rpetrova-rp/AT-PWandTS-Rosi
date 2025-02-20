@@ -4,36 +4,81 @@
 }
 header{
     background-color: aquamarine;
+    
 }
 header nav {
     text-align: center;
+    
 }
 header  nav ul{
     list-style-type: none;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
 }
 header nav ul li a {
     text-decoration: none;
-    color:rgb(29, 27, 27)
+    color:rgb(29, 27, 27);
+    margin-right: 15px;
 }
-
+header nav ul li a:hover{
+    color: #c7c7c7;
+}
 main {
-    text-align: center;
-    }
+    text-align: center;}
+main h1 {
+    margin:10px 0;
+   }
+    
 main .image-container img{
       width: 250px;
       height: 250px;  
+      border-radius: 10px;
     }
-main .description p {
+main .image-container img:hover {
+scale: 1.1;
+}
+main .description p{
         width: 500px;
-        margin: 50px;
+        margin:0 auto;
+        
+    }
+main .description h3,
+main .description h4
+{
+    margin-bottom: 10px;
     }
 main .search-bar {
-        padding: 10px;
+        
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+    main .search-bar input {
+        padding:3px;
+        border-radius: 15px;
+        border: 1px solid #c7c7c7;
+    }
+    main .search-bar button:hover {
+        cursor:pointer;
+        background-color: #c9c9c9;
+    }
+    main .search-bar button {
+        padding: 3px;
+        border-radius: 10px;
+        border: 1px solid #c7c7c7;
+        font-weight: 500;
     }
     main .main-text-contant{
         margin: 50px;
     }
 footer {
-    text-align: center;
+    width: 100%;
+    height: 50px;
     background-color: aquamarine;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
