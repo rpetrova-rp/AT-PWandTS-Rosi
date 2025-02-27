@@ -52,3 +52,46 @@ console.log("isEqual", isEqual);
 console.log("isGreaterOrEqual", isGreaterOrEqual);
 console.log("areNumberEqualTo", areNumberaEqualTo);
 console.log("isAnyNumberEqualTo", isAnynumberEqualTo);
+
+// Ternary operator 
+const isPositiveNum: string = 5 >0 ?"The numebr is positive" : "The numenr is negative";
+console.log(typeof isPositiveNum);
+
+const age: number = 50;
+const myName:string ="Rosi";
+
+const personDescription = 
+age < 40 
+?`${myName} is younger then 40. He is ${age} year old.`
+:`${myName} is older than 40. He is ${age} year old.`;
+
+const personName = `His name is "${myName}"`;
+
+console.log("personName", personName);
+
+// If Else statement 
+
+if (age < 40) {
+console.log ("Age are lower then 40");
+}
+else {
+console.log("Age are greater then 40");
+}
+
+const num: number = 50;
+
+if (num <= 10){
+    console.log ("The numebr is lower or equal o 10");
+} else if (num >80){
+    console.log("The numebr is greater than 80 and less than 100.");
+}else if (num >=100) {
+console.log("The number is greater than 100.");
+}else {
+    console .log ("The numebr is betwen 10 and 100.");
+}
+
+// Type Arrays
+type PersonInfoType = string | number;
+
+const personNameInf: PersonInfoType = "Rosi";
+const personAgeInf: PersonInfoType=42;
