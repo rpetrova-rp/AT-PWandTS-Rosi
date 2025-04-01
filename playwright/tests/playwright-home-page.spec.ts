@@ -1,8 +1,13 @@
 import { test, expect } from "@playwright/test";
 
+test.describe("Playwright home page testing", () => {
+  test.beforeEach("Navigate to the home page", async ({ page }) => {
+    const url = process.env.BASE_URL as string;
+    await page.goto(url);
+  });
+});
+
 test("Has Logo exist", async ({ page }) => {
-  const url = process.env.BASE_URL as string;
-  await page.goto(url);
   //get image by alt text
   const logo = page.getByAltText("Playwright logo").first();
   await expect(logo).toBeVisible();
@@ -10,8 +15,6 @@ test("Has Logo exist", async ({ page }) => {
 
 // Playwright enables reliable end-to-end testing for modern web apps.
 test("Has heading exist", async ({ page }) => {
-  const url = process.env.BASE_URL as string;
-  await page.goto(url);
   //locate heading one by locator tag name
   const headingTtitle = page.locator("h1");
   //log in the test results located element value
@@ -20,8 +23,6 @@ test("Has heading exist", async ({ page }) => {
 });
 
 test("Have nav links exist", async ({ page }) => {
-  const url = process.env.BASE_URL as string;
-  await page.goto(url);
   //locate nav link Docs by role and text
   const docsLink = page.getByRole("link", { name: "Docs" });
   const apiLink = page.getByRole("link", { name: "API" });
@@ -30,9 +31,6 @@ test("Have nav links exist", async ({ page }) => {
 });
 
 test("Click Community nav link and chesk the path", async ({ page }) => {
-  const url = process.env.BASE_URL as string;
-  await page.goto(url);
-
   //locate nav link community by role and text
   const communityLink = page.getByRole("link", { name: "Community" });
 
@@ -43,9 +41,19 @@ test("Click Community nav link and chesk the path", async ({ page }) => {
   await expect(headingTwo).toBeVisible();
 });
 
+//select dropdown list
+test("Select Playwright env from the list", async ({ page }) => {
+  const Initialenv = page.getByRole("button", { name: "Node.js" });
+  await Initialenv.hover();
+
+  const envList = page.locator(".dropdown_menu");
+  await expect(envList).toBeVisible();
+  const listItem = page.locator("ul.dropdwon__menu a").getByText("Python");
+  await listItem.click();
+  await expect(page).toHaveURL("https://playwright.dev/paython");
+});
+
 test("Check  if logos list exist", async ({ page }) => {
-  const url = process.env.BASE_URL as string;
-  await page.goto(url);
   //locate logos list by locator class name syntax
   const logosListItems = page.locator(".logosList_zAAF li");
   //expect the count of list items
