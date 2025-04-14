@@ -16,32 +16,50 @@ const results: Results = {
 
 const fillFields = async (page: Page, resultsObj: Results) => {
   //Locate and fill username input
-  const usernameInput = page.locator("xpath=//input[@name='username']");
-  await expect(usernameInput).toBeVisible();
-  await usernameInput.fill(resultsObj.username);
-  await expect(usernameInput).toHaveValue(resultsObj.username);
+  await test.step("Enter username", async () => {
+    const usernameInput = page.locator("xpath=//input[@name='username']");
+    await expect(usernameInput).toBeVisible();
+    await usernameInput.fill(resultsObj.username);
+    await expect(usernameInput).toHaveValue(resultsObj.username);
+  });
 
   //locate and fill comments fild
-  const commentsField = page.locator('xpath=//textarea[@name="comments"]');
-  await expect(commentsField).toBeVisible();
-  await commentsField.fill(resultsObj.comments);
-  await expect(commentsField).toHaveValue(resultsObj.comments);
+  await test.step("Fill comments field", async () => {
+    const commentsField = page.locator('xpath=//textarea[@name="comments"]');
+    await expect(commentsField).toBeVisible();
+    await commentsField.fill(resultsObj.comments);
+    await expect(commentsField).toHaveValue(resultsObj.comments);
+  });
 
   //Locate and mark checkbox
-  const checkboxEl = page.locator('xpath=//input[@value="cb2"]');
-  await expect(checkboxEl).toBeVisible();
-  await checkboxEl.check();
-  await expect(checkboxEl).toBeChecked();
-  //locate and fill dropdwon
-  const dropdown = page.locator('xpath=//select[@name="dropdown"]');
-  await expect(dropdown).toBeVisible();
-  await dropdown.selectOption(resultsObj.dropdownValue);
-  await expect(dropdown).toHaveValue(resultsObj.dropdownValue);
+  await test.step("Select checkbox", async () => {
+    const checkboxEl = page.locator('xpath=//input[@value="cb2"]');
+    await expect(checkboxEl).toBeVisible();
+    await checkboxEl.check();
+    await expect(checkboxEl).toBeChecked();
+  });
+
+  //Locate and check the radio button
+  await test.step("Select radio buton", async () => {
+    const radio2 = page.locator('xpath=//input[@value="rd2"]');
+    await radio2.check();
+    await expect(radio2).toBeChecked();
+  });
+
+  //locate and fill dropdown
+  await test.step("Select dropdown optin", async () => {
+    const dropdown = page.locator('xpath=//select[@name="dropdown"]');
+    await expect(dropdown).toBeVisible();
+    await dropdown.selectOption(resultsObj.dropdownValue);
+    await expect(dropdown).toHaveValue(resultsObj.dropdownValue);
+  });
   //Locate upload file
-  const uploadBtn = page.locator('xpath=//input[@type="file"]');
-  const filePath = path.resolve(__dirname, "./tests.txt");
-  await expect(uploadBtn).toBeVisible();
-  await uploadBtn.setInputFiles(filePath);
+  await test.step("Upload file", async () => {
+    const uploadBtn = page.locator('xpath=//input[@type="file"]');
+    const filePath = path.resolve(__dirname, "./tests.txt");
+    await expect(uploadBtn).toBeVisible();
+    await uploadBtn.setInputFiles(filePath);
+  });
 };
 
 test.describe("Test Basic HYML Form", () => {
