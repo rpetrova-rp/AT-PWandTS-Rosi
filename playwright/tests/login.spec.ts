@@ -1,11 +1,11 @@
 import { test, expect } from "@playwright/test";
 import { LoginPage } from "../pages/loginPages";
 
-let loginPage;
+let loginPage: LoginPage;
 
 test.describe("Login Page", () => {
   test.beforeEach("Go to", async ({ page }) => {
-    const loginPage = new LoginPage(page);
+    loginPage = new LoginPage(page);
     await loginPage.goto();
   });
   test("Login Successfully", async () => {
